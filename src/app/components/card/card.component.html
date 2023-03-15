@@ -1,0 +1,17 @@
+<div class="card_wrap">
+  <img
+    class="card_img"
+    [src]="'../../../images/' + film.id + '.jpeg'"
+    alt="film.id"
+  />
+  <p class="card_title">{{ film.name }}</p>
+  <p class="card_genre">
+    <span *ngFor="let item of film.genre">{{
+      convertGenre(item, film.genre)
+    }}</span>
+  </p>
+  <p class="card_date">{{ film.year }}</p>
+  <div *ngIf="hasFavoriteIcon" class="love_wrap" (click)="toggleLove(film)">
+    <img [src]="getIsLove()" alt="love" />
+  </div>
+</div>
